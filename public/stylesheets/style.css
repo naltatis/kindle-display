@@ -79,6 +79,7 @@ a {
 }
 #today #rain img {
   width: 27px;
+  height: 39px;
   margin-right: 5px;
 }
 #today #rain:after {
