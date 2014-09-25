@@ -66,39 +66,42 @@ a {
   font-size: 40px;
 }
 #today #rain {
+  position: relative;
   margin-top: 20px;
 }
 #today #rain img,
-#today #rain table {
+#today #rain .ct-chart {
   display: inline-block;
   vertical-align: top;
 }
+#today #rain .ct-chart {
+  margin-top: -10px;
+}
 #today #rain img {
-  width: 25px;
-  margin-right: 10px;
+  width: 27px;
+  margin-right: 5px;
 }
-#today #rain .probability {
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-}
-#today #rain .probability td {
-  height: 20px;
-  width: 16px;
-  vertical-align: bottom;
-  border-bottom: 1px solid #aaa;
-}
-#today #rain .probability td div {
-  background-color: #000;
-}
-#today #rain .hour td {
-  font-size: 0.3em;
-  color: #fff;
+#today #rain:after {
+  content: attr(data-rain);
+  position: absolute;
+  color: #000;
+  left: 0px;
+  top: 17px;
+  font-size: 13px;
+  width: 27px;
+  font-weight: 600;
   text-align: center;
 }
-#today #rain .hour td.hour0,
-#today #rain .hour td.hour5,
-#today #rain .hour td.hour10 {
+#today #rain:before {
+  content: "%";
+  position: absolute;
   color: #000;
+  left: 0px;
+  top: 3px;
+  font-size: 12px;
+  width: 32px;
+  font-weight: bold;
+  text-align: right;
 }
 #today #house {
   left: 25%;

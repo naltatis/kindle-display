@@ -16,7 +16,7 @@ get = (long, lat, cb) ->
     data = res.body
     weather = {}
     weather.forecast = []
-    weather.rain = []
+    weather.rain = {probability: [], hour: []}
 
     weather.today =
       current: data.current_observation.temp_c
@@ -35,14 +35,12 @@ get = (long, lat, cb) ->
         }
 
     for entry, i in data.hourly_forecast
-      if i < 11
-        weather.rain.push {
-          probability: parseInt(entry.pop, 10)
-          hour: entry.FCTTIME.hour
-        }
+      if i < 13
+        weather.rain.probability.push(Math.min(99, parseInt(entry.pop, 10)))
+        weather.rain.hour.push(if i%4 is 0 then entry.FCTTIME.hour else "")
 
-    weather.probabilityMax = Math.floor weather.rain.reduce((prev, current) ->
-      if prev? then Math.max(prev, current.probability) else current.probability
+    weather.probabilityMax = Math.floor weather.rain.probability.reduce((prev, current) ->
+      if prev? then Math.max(prev, current) else current
     , null)
     weather.temperatureMin = Math.floor weather.forecast.reduce((prev, current) ->
       if prev? then Math.min(prev, current.min) else current.min

@@ -62,33 +62,37 @@ a
   font-size 40px
 
   #rain
+    position relative
     margin-top 20px
     img
-    table
+    .ct-chart
       display inline-block
       vertical-align top
+    .ct-chart
+      margin-top -10px
     img
-      width 25px
-      margin-right 10px
-    .probability
-      border-left 1px solid black
-      border-right 1px solid black
-      td
-        height 20px
-        width 16px
-        vertical-align bottom
-        border-bottom 1px solid #aaa
-        div
-          background-color #000
-    .hour
-      td
-        font-size 0.3em
-        color white
-        text-align center
-        &.hour0
-        &.hour5
-        &.hour10
-          color black
+      width 27px
+      margin-right 5px
+    &:after
+      content attr(data-rain)
+      position absolute
+      color black
+      left 0px
+      top 17px
+      font-size 13px
+      width 27px
+      font-weight 600
+      text-align center
+    &:before
+      content "%"
+      position absolute
+      color black
+      left 0px
+      top 3px
+      font-size 12px
+      width 32px
+      font-weight bold
+      text-align right
 
   #house
     left 25%

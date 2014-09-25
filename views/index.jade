@@ -13,16 +13,38 @@ block content
       p.temp #{formatTemp(uvr.aussen)}
 
     #today
-      if weather.probabilityMax > 30
-        #rain
+      if weather.probabilityMax >= 35
+        #rain(data-rain=weather.probabilityMax)
           img(src="images/drop.svg")
-          table
-            tr.probability
-              for rain, i in weather.rain
-                td: div(style="height: #{rain.probability}%; opacity: #{rain.probability/100}")
-            tr.hour
-              for rain, i in weather.rain
-                td(class="hour#{i}")= rain.hour
+          .ct-chart
+          script.
+            var data = {
+              labels: [#{weather.rain.hour.join(',')}],
+              series: [
+                [#{weather.rain.probability.join(',')}]
+              ]
+            };
+
+            var options = {
+              width: 180,
+              height: 70,
+              lineSmooth: true,
+              low: 0,
+              high: #{weather.probabilityMax},
+              showPoint: false,
+              axisX: {
+                showGrid: false,
+                showLabel: true,
+                offset: 0
+              },
+              axisY: {
+                showGrid: false,
+                showLabel: false,
+                offset: 5
+              }
+            };
+
+            Chartist.Line('.ct-chart', data, options);
 
       img#house(src="/images/house.svg")
       p.temp #{formatTemp(pluggit.innen)}
