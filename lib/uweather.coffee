@@ -1,4 +1,7 @@
 request = require "superagent"
+LRU = require "lru-cache"
+
+cache = LRU(length: 1, maxAge: 1000 * 60 * 5)
 
 wundergroundApi = "http://api.wunderground.com/api/e928b5bda5c7b7b7/conditions/hourly/forecast10day/lang:DE/q/Germany/Bersenbruck.json"
 
@@ -11,7 +14,7 @@ simpleDate = (timestamp) ->
   date = new Date(timestamp*1000)
   date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
 
-get = (long, lat, cb) ->
+getWeather = (cb) ->
   request.get wundergroundApi, (res) ->
     data = res.body
     weather = {}
@@ -50,7 +53,11 @@ get = (long, lat, cb) ->
     , null)
     cb null, weather
 
-
 module.exports = {
-  get: get
+  get: (cb) ->
+    data = cache.get("standard")
+    return cb(null, data) if data?
+    getWeather (err, result) ->
+      cache.set("standard", result)
+      cb err, result
 }
