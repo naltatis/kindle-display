@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 14px;
+  font-family: Arial;
+}
+a {
+  color: #00b7ff;
+}
+#canvas {
+  position: relative;
+  height: 800px;
+  width: 600px;
+  background-color: #fff;
+}
+#status {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 2%;
+}
+#status #awigo {
+  text-align: right;
+}
+#status #awigo strong {
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: #333;
+  border-radius: 6px;
+  text-align: middle;
+  display: inline-block;
+  margin: 0 0.3em;
+  padding: 0.18em 0.3em;
+  line-height: 1em;
+  font-weight: normal;
+  vertical-align: top;
+}
+#current {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 50%;
+  width: 50%;
+}
+#current img {
+  display: block;
+  margin-top: -10%;
+  width: 100%;
+}
+#current p {
+  margin-top: -30%;
+  font-size: 100px;
+  padding-left: 0.25em;
+  text-align: center;
+}
+#today {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 50%;
+  height: 50%;
+  padding: 50px 30px;
+  font-size: 40px;
+}
+#today #rain {
+  margin-top: 20px;
+}
+#today #rain img,
+#today #rain table {
+  display: inline-block;
+  vertical-align: top;
+}
+#today #rain img {
+  width: 25px;
+  margin-right: 10px;
+}
+#today #rain .probability {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+#today #rain .probability td {
+  height: 20px;
+  width: 16px;
+  vertical-align: bottom;
+  border-bottom: 1px solid #aaa;
+}
+#today #rain .probability td div {
+  background-color: #000;
+}
+#today #rain .hour td {
+  font-size: 0.3em;
+  color: #fff;
+  text-align: center;
+}
+#today #rain .hour td.hour0,
+#today #rain .hour td.hour5,
+#today #rain .hour td.hour10 {
+  color: #000;
+}
+#today #house {
+  left: 25%;
+  position: absolute;
+  width: 50%;
+  bottom: 30%;
+}
+#today #bypass {
+  right: 25%;
+  position: absolute;
+  width: 11%;
+  bottom: 37%;
+  background-color: #fff;
+  border-bottom: 3px solid #fff;
+  border-top: 3px solid #fff;
+}
+#today .temp {
+  left: 27%;
+  position: absolute;
+  width: 50%;
+  bottom: 35%;
+  font-size: 1.3em;
+  text-align: center;
+}
+#today .speed {
+  right: 26%;
+  position: absolute;
+  bottom: 31.5%;
+  font-size: 0.5em;
+}
+#forecast {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  padding: 15px;
+  height: 60%;
+  width: 100%;
+}
+#forecast h2 {
+  font-weight: normal;
+  font-size: 1.3rem;
+  color: #333;
+}
+#forecast h2 strong {
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #333;
+  border-radius: 6px;
+  text-align: middle;
+  display: inline-block;
+  margin: 0 0.3em;
+  padding: 0.18em;
+  line-height: 1em;
+  font-weight: normal;
+  vertical-align: top;
+  margin-top: -0.05em;
+}
+#forecast h2 .moon {
+  text-align: middle;
+  display: inline-block;
+  height: 1.3rem;
+  margin: -0.05em 0.2em 0;
+}
+#forecast section {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+  text-align: center;
+  height: 500px;
+}
+#forecast img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+#forecast .range {
+  position: relative;
+  height: 280px;
+  margin: 1rem 0;
+  width: 100%;
+}
+#forecast .inner {
+  position: absolute;
+  bottom: 0%;
+  left: 33%;
+  right: 33%;
+  background-color: #444;
+  border-radius: 20px;
+}
+#forecast .min,
+#forecast .max {
+  font-size: 1.4rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0.2em;
+}
+#forecast .max {
+  top: -1.6em;
+}
+#forecast .min {
+  position: absolute;
+  bottom: -1.9em;
+}

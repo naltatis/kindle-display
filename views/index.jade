@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  #canvas
+    #status
+      if new Date().getHours() < 12 && awigo[weather.forecast[0].date]
+        #awigo
+          for item in awigo[weather.forecast[0].date]
+            strong= item.name
+
+    #current
+      img(src="/images/weather/#{weather.today.icon}.svg")
+      p.temp #{formatTemp(uvr.aussen)}
+
+    #today
+      if weather.probabilityMax > 30
+        #rain
+          img(src="images/drop.svg")
+          table
+            tr.probability
+              for rain, i in weather.rain
+                td: div(style="height: #{rain.probability}%; opacity: #{rain.probability/100}")
+            tr.hour
+              for rain, i in weather.rain
+                td(class="hour#{i}")= rain.hour
+
+      img#house(src="/images/house.svg")
+      p.temp #{formatTemp(pluggit.innen)}
+      p.speed #{pluggit.speed}
+      img#bypass(src="/images/bypass_#{pluggit.bypass=='open' ? 'open' : 'closed'}.svg")
+
+    #forecast
+      for entry in weather.forecast
+        section
+          h2
+            =entry.day
+            if awigo[entry.date]
+              for item in awigo[entry.date]
+                strong= item.letter
+            if moon[entry.date]
+              img.moon(src="/images/moon/#{moon[entry.date]}.svg")
+          img(src="/images/weather/#{entry.icon}.svg")
+          .range
+            .inner(style="top: #{100/(weather.temperatureMax-weather.temperatureMin)*(weather.temperatureMax-entry.max)}%; bottom: #{100/(weather.temperatureMin-weather.temperatureMax)*(weather.temperatureMin-entry.min)}%")
+              .max= formatTemp(entry.max)
+              .min= formatTemp(entry.min)
+
+  //-pre= JSON.stringify(weather, "", " ")
