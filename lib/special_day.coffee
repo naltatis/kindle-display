@@ -21,7 +21,6 @@ read("namenstage")
 read("sondertage")
 
 today = (date) ->
-  console.log days[simpleDate(date)]
   days[simpleDate(date)]
 
 module.exports = today
