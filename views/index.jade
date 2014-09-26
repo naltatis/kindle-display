@@ -12,10 +12,20 @@ block content
       img(src="/images/weather/#{weather.today.icon}.svg")
       p.temp #{formatTemp(uvr.aussen)}
 
+    #special
+      if specialDay
+        p(data-type=specialDay[0].type)
+          if specialDay[0].type == "namenstage"
+            small Namenstag
+          a(href=specialDay[0].url, target="_blank")= specialDay[0].name
+      img(src="/images/icons/#{icon}.svg", width="90")
+
     #today
       if weather.probabilityMax >= 35
-        #rain(data-rain=weather.probabilityMax)
-          img(src="images/drop.svg")
+        #rain
+          .rain-label
+            p #{weather.probabilityMax}<small>%</small>
+            img(src="images/drop.svg")
           .ct-chart
           script.
             var data = {
@@ -26,7 +36,7 @@ block content
             };
 
             var options = {
-              width: 180,
+              width: 150,
               height: 70,
               lineSmooth: true,
               low: 0,
@@ -38,7 +48,7 @@ block content
                 offset: 0
               },
               axisY: {
-                showGrid: false,
+                showGrid: true,
                 showLabel: false,
                 offset: 5
               }
