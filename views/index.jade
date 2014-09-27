@@ -18,7 +18,7 @@ block content
           if specialDay[0].type == "namenstage"
             small Namenstag
           a(href=specialDay[0].url, target="_blank")= specialDay[0].name
-      img(src="/images/icons/#{icon}.svg", width="90")
+      img(src="/images/icons/#{icon}.svg")
 
     #today
       if weather.probabilityMax >= 35
