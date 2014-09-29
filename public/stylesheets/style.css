@@ -132,6 +132,10 @@ a {
 }
 #today #rain .ct-chart .ct-label {
   fill: #000;
+  font-weight: bold;
+}
+#today #rain .ct-chart .ct-grid {
+  stroke: #000;
 }
 #today #house {
   left: 11%;
