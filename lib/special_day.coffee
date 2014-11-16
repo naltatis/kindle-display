@@ -18,7 +18,7 @@ read = (filename) ->
         url: value.url
 
 read("namenstage")
-read("sondertage")
+read("sondertage_de")
 
 today = (date) ->
   days[simpleDate(date)]
