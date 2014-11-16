@@ -92,7 +92,8 @@ a {
   font-weight: bold;
   border-top: 1px solid #999;
 }
-#special p[data-type=sondertage] a {
+#special p[data-type=sondertage] a,
+#special p[data-type=sondertage_de] a {
   font-size: 19px;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
