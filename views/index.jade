@@ -73,6 +73,10 @@ block content
               img.moon(src="/images/moon/#{moon[entry.date]}.svg")
           img(src="/images/weather/#{entry.icon}.svg")
           .range
+            .grid
+              for grid in [-20,-15,-10,-5,0,5,10,15,20,25,30,35]
+                if weather.temperatureMax >= grid && grid >= weather.temperatureMin
+                  hr.grid-line(class="grid-line_#{grid}", style="top: #{100/(weather.temperatureMax-weather.temperatureMin)*(weather.temperatureMax-grid)}%")
             .inner(style="top: #{100/(weather.temperatureMax-weather.temperatureMin)*(weather.temperatureMax-entry.max)}%; bottom: #{100/(weather.temperatureMin-weather.temperatureMax)*(weather.temperatureMin-entry.min)}%")
               .max= formatTemp(entry.max)
               .min= formatTemp(entry.min)
