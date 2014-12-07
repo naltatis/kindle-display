@@ -2,7 +2,7 @@ Forecast = require "forecast"
 
 forecast = new Forecast(
   service: 'forecast.io'
-  key: '3efcd3a4b7dbe5e7fc7584550cffc22a'
+  key: '_'
   units: 'celcius'
   cache: true
   ttl: minutes: 15
@@ -47,6 +47,4 @@ get = (long, lat, cb) ->
     cb err, weather
 
 
-module.exports = {
-  get: get
-}
+module.exports = get

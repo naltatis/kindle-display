@@ -1,0 +1,15 @@
+plugins: ["special_day", "weather_underground", "uvr", "pluggit", "awigo", "moon", "today_icon"]
+awigo:
+  file: "awigo.ics"
+moon:
+  file: "moon.ics"
+today_icon:
+  number_of_icons: 153
+uvr:
+  db: "../homestats.db"
+pluggit:
+  db: "../homestats.db"
+weather_underground:
+  location: "Germany/Bersenbruck"
+  apiKey: "__"
+  cacheMin: 10

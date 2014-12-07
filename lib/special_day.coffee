@@ -1,26 +1,30 @@
 ical = require "ical"
 fs = require "fs"
 
-days = {}
+class SpecialDay
+  constructor: (@opts) ->
+    @_addDays(@_readIcal("./namenstage.ics"), "namenstag")
+    @_addDays(@_readIcal("./sondertage_de.ics"), "sondertag")
 
-simpleDate = (date) ->
-  date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
+  data: (cb) ->
+    cb(null, @days[@_simpleDate(new Date())])
 
-read = (filename) ->
-  string = fs.readFileSync "./#{filename}.ics", "utf8"
-  for key, value of ical.parseICS(string)
-    if value? and value.start? and value.summary?
-      date = simpleDate(value.start)
-      days[date] ?= []
-      days[date].push
-        type: filename
-        name: value.summary.val || value.summary
-        url: value.url
+  _readIcal: (file) ->
+    string = fs.readFileSync file, "utf8"
+    ical.parseICS(string)
 
-read("namenstage")
-read("sondertage_de")
+  _simpleDate: (date) ->
+    date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
 
-today = (date) ->
-  days[simpleDate(date)]
+  _addDays: (icalEvents, type) ->
+    @days ||= {}
+    for key, value of icalEvents
+      if value? and value.start? and value.summary?
+        date = @_simpleDate(value.start)
+        @days[date] ?= []
+        @days[date].push
+          type: type
+          name: value.summary.val || value.summary
+          url: value.url
 
-module.exports = today
+module.exports = SpecialDay

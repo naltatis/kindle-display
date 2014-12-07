@@ -13,17 +13,36 @@ names =
   "Papier-Tonne": "Papiermüll"
   "Restmuelltonne": "Restmüll"
 
-simpleDate = (date) ->
-  date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
+class Awigo
+  constructor: (conf) ->
+    @result = @_transformEvents(@_readIcal(conf.file))
 
-icalString = fs.readFileSync "./awigo.ics", "utf8"
-events = {}
-for key, value of ical.parseICS(icalString)
-  if value? and value.start?
-    date = simpleDate(value.start)
-    garbage = value.summary.val
-    if not events[date]?
-      events[date] = []
-    events[date].push {letter: letters[garbage], name: names[garbage]}
+  data: (cb) ->
+    nextResults = {}
+    nextResults[day] = @result[day] for day in @_nextDays(5)
+    cb(null, nextResults)
 
-module.exports = events
+  _nextDays: (number) ->
+    now = new Date().getTime()
+    msPerDay = 24*60*60*1000
+    (@_simpleDate(new Date(now + i*msPerDay)) for i in [0..number-1])
+
+  _simpleDate: (date) ->
+    date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()
+
+  _readIcal: (file) ->
+    string = fs.readFileSync file, "utf8"
+    ical.parseICS(string)
+
+  _transformEvents: (icalEvents) ->
+    events = {}
+    for key, value of icalEvents
+      if value? and value.start?
+        date = @_simpleDate(value.start)
+        garbage = value.summary.val
+        if not events[date]?
+          events[date] = []
+        events[date].push {letter: letters[garbage], name: names[garbage]}
+    events
+
+module.exports = Awigo

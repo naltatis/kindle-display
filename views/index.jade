@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  - weather = weather_underground
+
   #canvas
     #status
       if new Date().getHours() < 12 && awigo[weather.forecast[0].date]
@@ -13,12 +15,12 @@ block content
       p.temp #{formatTemp(uvr.aussen)}
 
     #special
-      if specialDay
-        p(data-type=specialDay[0].type)
-          if specialDay[0].type == "namenstage"
+      if special_day
+        p(data-type=special_day[0].type)
+          if special_day[0].type == "namenstag"
             small Namenstag
-          a(href=specialDay[0].url, target="_blank")= specialDay[0].name
-      img(src="/images/icons/#{icon}.svg")
+          a(href=special_day[0].url, target="_blank")= special_day[0].name
+      img(src=today_icon)
 
     #today
       if weather.probabilityMax >= 20
@@ -74,11 +76,12 @@ block content
           img(src="/images/weather/#{entry.icon}.svg")
           .range
             .grid
-              for grid in [-20,-15,-10,-5,0,5,10,15,20,25,30,35]
+              for grid in [-20,-10,0,10,20,30]
                 if weather.temperatureMax >= grid && grid >= weather.temperatureMin
                   hr.grid-line(class="grid-line_#{grid}", style="top: #{100/(weather.temperatureMax-weather.temperatureMin)*(weather.temperatureMax-grid)}%")
             .inner(style="top: #{100/(weather.temperatureMax-weather.temperatureMin)*(weather.temperatureMax-entry.max)}%; bottom: #{100/(weather.temperatureMin-weather.temperatureMax)*(weather.temperatureMin-entry.min)}%")
               .max= formatTemp(entry.max)
               .min= formatTemp(entry.min)
 
-  //-pre= JSON.stringify(weather, "", " ")
+  //-for debugging
+  //-pre= JSON.stringify(awigo, "", " ")
