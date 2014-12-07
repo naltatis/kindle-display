@@ -1,7 +1,7 @@
 {
-  "name": "server",
-  "version": "0.0.1",
-  "private": true,
+  "name": "kindle-display",
+  "version": "0.2.0",
+  "private": false,
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -22,5 +22,27 @@
     "static-favicon": "~1.0.0",
     "stylus": "0.42.3",
     "superagent": "^0.18.2"
-  }
+  },
+  "description": "kindle status display server",
+  "main": "bin/www",
+  "devDependencies": {
+    "coffee-script": "^1.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:naltatis/kindle-display.git"
+  },
+  "keywords": [
+    "kindle",
+    "display",
+    "status",
+    "server",
+    "express"
+  ],
+  "author": "naltatis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naltatis/kindle-display/issues"
+  },
+  "homepage": "https://github.com/naltatis/kindle-display"
 }
