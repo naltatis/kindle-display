@@ -1,0 +1,10 @@
+#*/15 * * * * /usr/sbin/checkpmond
+#*/15 * * * * /usr/sbin/tinyrot
+#*/60 * * * * /usr/sbin/loginfo tmpfs
+#*/60 * * * * /usr/sbin/loginfo localVars
+#*/60 * * * * /usr/sbin/loginfo memusedump
+#*/15 * * * * /usr/sbin/loginfo powerdcheck
+
+
+*/30 6-19 * * * /mnt/us/display-weather.sh
+0 20,22,0,5 * * * /mnt/us/display-weather.sh
