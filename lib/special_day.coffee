@@ -3,8 +3,9 @@ fs = require "fs"
 
 class SpecialDay
   constructor: (@opts) ->
-    @_addDays(@_readIcal("./namenstage.ics"), "namenstag")
-    @_addDays(@_readIcal("./sondertage_de.ics"), "sondertag")
+    @_addDays(@_readIcal("./data/namenstage.ics"), "namenstag")
+    @_addDays(@_readIcal("./data/sondertage_de.ics"), "sondertag")
+    @_addDays(@_readIcal("./data/feste_braeuche.ics"), "fest")
 
   data: (cb) ->
     cb(null, @days[@_simpleDate(new Date())])
