@@ -76,9 +76,8 @@ block content
           img(src="/images/weather/#{entry.icon}.svg")
           .range
             .grid
-              for grid in [-20,-10,0,10,20,30]
-                if weather.temperatureMax >= grid && grid >= weather.temperatureMin
-                  hr.grid-line(class="grid-line_#{grid}", style="top: #{100/(weather.temperatureMax-weather.temperatureMin)*(weather.temperatureMax-grid)}%")
+              if weather.temperatureMax >= 0 && 0 >= weather.temperatureMin
+                hr.grid-line(class="grid-line_0", style="top: #{100/(weather.temperatureMax-weather.temperatureMin)*(weather.temperatureMax)}%")
             .inner(style="top: #{100/(weather.temperatureMax-weather.temperatureMin)*(weather.temperatureMax-entry.max)}%; bottom: #{100/(weather.temperatureMin-weather.temperatureMax)*(weather.temperatureMin-entry.min)}%")
               .max= formatTemp(entry.max)
               .min= formatTemp(entry.min)
