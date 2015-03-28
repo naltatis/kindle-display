@@ -14,8 +14,7 @@ config.plugins.forEach (name) ->
 router = express.Router()
 
 router.get "/", (req, res) ->
-  async.series plugins, (err, model) ->
-    #console.log model
+  async.parallel plugins, (err, model) ->
     return res.send(500, err) if err?
     res.render "index", model
 
