@@ -52,6 +52,19 @@ a
     font-size 100px
     padding-left 0.25em
     text-align center
+    span
+      position relative
+      &:after
+        content ""
+        position absolute
+        right 13px
+        font-size 0.15em
+  &.current-delta--up span:after
+    content "▲"
+    top 0px
+  &.current-delta--down span:after
+    content "▼"
+    top 46px
 
 #special
   position absolute
@@ -132,7 +145,7 @@ a
     width 75%
     bottom 30%
   #bypass
-    right 19%
+    right 17%
     position absolute
     width 11%
     bottom 37%
@@ -146,6 +159,19 @@ a
     bottom 35%
     font-size 1.3em
     text-align center
+    span
+      position relative
+      &:after
+        content ""
+        position absolute
+        right 6px
+        font-size 0.18em
+    &.temp-delta--up span:after
+      content "▲"
+      top -3px
+    &.temp-delta--down span:after
+      content "▼"
+      top 24px
   .speed
     right 16%
     position absolute

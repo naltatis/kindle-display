@@ -57,6 +57,23 @@ a {
   padding-left: 0.25em;
   text-align: center;
 }
+#current p span {
+  position: relative;
+}
+#current p span:after {
+  content: "";
+  position: absolute;
+  right: 13px;
+  font-size: 0.15em;
+}
+#current.current-delta--up span:after {
+  content: "▲";
+  top: 0px;
+}
+#current.current-delta--down span:after {
+  content: "▼";
+  top: 46px;
+}
 #special {
   position: absolute;
   left: 33%;
@@ -145,7 +162,7 @@ a {
   bottom: 30%;
 }
 #today #bypass {
-  right: 19%;
+  right: 17%;
   position: absolute;
   width: 11%;
   bottom: 37%;
@@ -160,6 +177,23 @@ a {
   bottom: 35%;
   font-size: 1.3em;
   text-align: center;
+}
+#today .temp span {
+  position: relative;
+}
+#today .temp span:after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  font-size: 0.18em;
+}
+#today .temp.temp-delta--up span:after {
+  content: "▲";
+  top: -3px;
+}
+#today .temp.temp-delta--down span:after {
+  content: "▼";
+  top: 24px;
 }
 #today .speed {
   right: 16%;

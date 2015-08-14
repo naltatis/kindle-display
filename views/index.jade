@@ -10,9 +10,9 @@ block content
           for item in awigo[weather.forecast[0].date]
             strong= item.name
 
-    #current
+    #current(class="#{tempdelta.aussen >= 1 ? 'current-delta--up' : ''} #{tempdelta.aussen <= -1 ? 'current-delta--down' : ''}")
       img(src="/images/weather/#{weather.today.icon}.svg")
-      p.temp #{formatTemp(uvr.aussen)}
+      p.temp: span #{formatTemp(uvr.aussen)}
 
     #special
       if special_day
@@ -59,7 +59,8 @@ block content
             Chartist.Line('.ct-chart', data, options);
 
       img#house(src="/images/house.svg")
-      p.temp #{formatTemp(pluggit.innen)}
+      p.temp(class="#{tempdelta.innen >= 0.1 ? 'temp-delta--up' : ''} #{tempdelta.innen <= -0.1 ? 'temp-delta--down' : ''}")
+        span #{formatTemp(pluggit.innen)}
       p.speed #{pluggit.speed}
       img#bypass(src="/images/bypass_#{pluggit.bypass=='open' ? 'open' : 'closed'}.svg")
 
