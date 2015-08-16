@@ -115,13 +115,15 @@ a
   #rain
     position relative
     margin-top 20px
-    margin-left -30px
-    margin-right -30px
+    margin-left -50px
+    margin-right -60px
     .rain-label
+    .wind-label
     .ct-chart
       display inline-block
       vertical-align top
     .rain-label
+      width 40px
       p
         margin 5px 0 5px
         font-size 20px
@@ -132,12 +134,33 @@ a
         display block
         width 70%
         margin-left 15%
+    .wind-label
+      text-align center
+      p
+        margin 5px 0 5px
+        font-size 20px
+        small
+          font-size 14px
+      img
+        display block
+        width 55%
+        margin-left 25%
     .ct-chart
+      margin-top -5px
       .ct-label
-        fill black
+        color black
+        margin-left -5px
         font-weight bold
       .ct-grid
         stroke #000
+      .ct-line
+        stroke #000
+      .ct-series-a .ct-line
+        stroke-width 4px
+      .ct-series-b
+        .ct-line
+          stroke-width 3px
+          stroke-dasharray 8, 4
 
   #house
     left 11%

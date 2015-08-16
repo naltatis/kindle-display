@@ -23,37 +23,47 @@ block content
       img(src=today_icon)
 
     #today
-      if weather.probabilityMax >= 20
+      if weather.probabilityMax >= 20 || weather.windSpeedMax >= 10
         #rain
           .rain-label
-            p #{weather.probabilityMax}<small>%</small>
-            img(src="images/drop.svg")
+            if weather.probabilityMax >= 20
+              p #{weather.probabilityMax}<small>%</small>
+              img(src="images/drop.svg")
           .ct-chart
+          .wind-label
+            if weather.windSpeedMax >= 10
+              p #{weather.windSpeedMax}<small> km/h</small>
+              img(src="images/wind.svg")
+
           script.
             var data = {
               labels: [#{weather.rain.hour.join(',')}],
-              series: [
-                [#{weather.rain.probability.join(',')}]
-              ]
+              series: [{
+                name: "rain",
+                data: [#{weather.rain.probability.join(',')}]
+              }, {
+                name: "wind",
+                data: [#{weather.wind.speed.join(',')}]
+              }]
             };
 
             var options = {
               width: 150,
-              height: 70,
+              height: 80,
               lineSmooth: true,
               low: 0,
               high: 100,
-              showPoint: false,
+              fullWidth: true,
               axisX: {
                 showGrid: false,
-                showLabel: true,
-                offset: 0
+                offset: 15
               },
               axisY: {
                 showGrid: true,
                 showLabel: false,
                 offset: 5
-              }
+              },
+              showPoint: false
             };
 
             Chartist.Line('.ct-chart', data, options);

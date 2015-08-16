@@ -29,6 +29,7 @@ class Weather
       weather = {}
       weather.forecast = []
       weather.rain = {probability: [], hour: []}
+      weather.wind = {speed: [], direction: [], hour: []}
 
       weather.today =
         current: data.current_observation.temp_c
@@ -49,11 +50,20 @@ class Weather
       for entry, i in data.hourly_forecast
         if i < 13
           weather.rain.probability.push(Math.min(99, parseInt(entry.pop, 10)))
+          weather.wind.speed.push(parseInt(entry.wspd.metric, 10))
           weather.rain.hour.push(if i%6 is 0 then entry.FCTTIME.hour else "")
+          weather.wind.hour.push(if i%6 is 0 then entry.FCTTIME.hour else "")
 
       weather.probabilityMax = Math.floor weather.rain.probability.reduce((prev, current) ->
         if prev? then Math.max(prev, current) else current
       , null)
+      weather.windDirection = parseInt(data.hourly_forecast[0].wdir.degrees, 10)
+      weather.windSpeedMax = Math.floor weather.wind.speed.reduce((prev, current) ->
+        if prev? then Math.max(prev, current) else current
+      , null)
+      weather.windSpeedMax = Math.ceil(weather.windSpeedMax / 5) * 5
+      weather.rain.probability = [0] if weather.probabilityMax < 20
+      weather.wind.speed = if weather.windSpeedMax < 10 then [0] else (100/weather.windSpeedMax*speed for speed in weather.wind.speed)
       weather.temperatureMin = Math.floor weather.forecast.reduce((prev, current) ->
         if prev? then Math.min(prev, current.min) else current.min
       , null)

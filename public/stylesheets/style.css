@@ -127,13 +127,17 @@ a {
 #today #rain {
   position: relative;
   margin-top: 20px;
-  margin-left: -30px;
-  margin-right: -30px;
+  margin-left: -50px;
+  margin-right: -60px;
 }
 #today #rain .rain-label,
+#today #rain .wind-label,
 #today #rain .ct-chart {
   display: inline-block;
   vertical-align: top;
+}
+#today #rain .rain-label {
+  width: 40px;
 }
 #today #rain .rain-label p {
   margin: 5px 0 5px;
@@ -148,12 +152,41 @@ a {
   width: 70%;
   margin-left: 15%;
 }
+#today #rain .wind-label {
+  text-align: center;
+}
+#today #rain .wind-label p {
+  margin: 5px 0 5px;
+  font-size: 20px;
+}
+#today #rain .wind-label p small {
+  font-size: 14px;
+}
+#today #rain .wind-label img {
+  display: block;
+  width: 55%;
+  margin-left: 25%;
+}
+#today #rain .ct-chart {
+  margin-top: -5px;
+}
 #today #rain .ct-chart .ct-label {
-  fill: #000;
+  color: #000;
+  margin-left: -5px;
   font-weight: bold;
 }
 #today #rain .ct-chart .ct-grid {
   stroke: #000;
+}
+#today #rain .ct-chart .ct-line {
+  stroke: #000;
+}
+#today #rain .ct-chart .ct-series-a .ct-line {
+  stroke-width: 4px;
+}
+#today #rain .ct-chart .ct-series-b .ct-line {
+  stroke-width: 3px;
+  stroke-dasharray: 8, 4;
 }
 #today #house {
   left: 11%;
@@ -162,7 +195,7 @@ a {
   bottom: 30%;
 }
 #today #bypass {
-  right: 17%;
+  right: 17.5%;
   position: absolute;
   width: 11%;
   bottom: 37%;
