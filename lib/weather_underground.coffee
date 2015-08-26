@@ -63,7 +63,7 @@ class Weather
       , null)
       weather.windSpeedMax = Math.ceil(weather.windSpeedMax / 5) * 5
       weather.rain.probability = [0] if weather.probabilityMax < 20
-      weather.wind.speed = if weather.windSpeedMax < 10 then [0] else (100/weather.windSpeedMax*speed for speed in weather.wind.speed)
+      weather.wind.speed = if weather.windSpeedMax < 20 then [0] else (100/weather.windSpeedMax*speed for speed in weather.wind.speed)
       weather.temperatureMin = Math.floor weather.forecast.reduce((prev, current) ->
         if prev? then Math.min(prev, current.min) else current.min
       , null)

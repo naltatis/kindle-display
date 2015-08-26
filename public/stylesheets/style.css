@@ -15,6 +15,7 @@ a {
   height: 800px;
   width: 600px;
   background-color: #fff;
+  overflow: hidden;
 }
 #status {
   position: absolute;
@@ -153,6 +154,7 @@ a {
   margin-left: 15%;
 }
 #today #rain .wind-label {
+  width: 45px;
   text-align: center;
 }
 #today #rain .wind-label p {
@@ -160,15 +162,16 @@ a {
   font-size: 20px;
 }
 #today #rain .wind-label p small {
-  font-size: 14px;
+  font-size: 10px;
 }
 #today #rain .wind-label img {
   display: block;
-  width: 55%;
-  margin-left: 25%;
+  width: 65%;
+  margin-left: 10%;
 }
 #today #rain .ct-chart {
   margin-top: -5px;
+  width: 140px;
 }
 #today #rain .ct-chart .ct-label {
   color: #000;
