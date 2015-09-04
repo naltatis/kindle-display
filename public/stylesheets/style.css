@@ -64,15 +64,26 @@ a {
 #current p span:after {
   content: "";
   position: absolute;
-  right: 13px;
+  right: 5px;
   font-size: 0.15em;
+  width: 32px;
+  text-align: center;
+  letter-spacing: 0;
 }
 #current.current-delta--up span:after {
   content: "▲";
   top: 0px;
 }
+#current.current-delta--up-up span:after {
+  content: "▲▲";
+  top: 0px;
+}
 #current.current-delta--down span:after {
   content: "▼";
+  top: 46px;
+}
+#current.current-delta--down-down span:after {
+  content: "▼▼";
   top: 46px;
 }
 #special {
@@ -118,18 +129,15 @@ a {
 }
 #today {
   position: absolute;
-  left: 66%;
+  left: 60%;
   top: 0;
-  width: 33%;
+  right: 0%;
   height: 50%;
-  padding: 50px 30px;
   font-size: 40px;
 }
 #today #rain {
   position: relative;
-  margin-top: 20px;
-  margin-left: -50px;
-  margin-right: -60px;
+  margin-top: 55px;
 }
 #today #rain .rain-label,
 #today #rain .wind-label,
@@ -138,6 +146,7 @@ a {
   vertical-align: top;
 }
 #today #rain .rain-label {
+  margin-right: 5px;
   width: 40px;
 }
 #today #rain .rain-label p {
@@ -192,13 +201,13 @@ a {
   stroke-dasharray: 8, 4;
 }
 #today #house {
-  left: 11%;
+  left: 20%;
   position: absolute;
-  width: 75%;
+  width: 61%;
   bottom: 30%;
 }
 #today #bypass {
-  right: 17.5%;
+  right: 20%;
   position: absolute;
   width: 11%;
   bottom: 37%;
@@ -220,19 +229,30 @@ a {
 #today .temp span:after {
   content: "";
   position: absolute;
-  right: 6px;
+  right: 0px;
   font-size: 0.18em;
+  width: 20px;
+  text-align: center;
+  letter-spacing: 0;
 }
 #today .temp.temp-delta--up span:after {
   content: "▲";
+  top: -3px;
+}
+#today .temp.temp-delta--up-up span:after {
+  content: "▲▲";
   top: -3px;
 }
 #today .temp.temp-delta--down span:after {
   content: "▼";
   top: 24px;
 }
+#today .temp.temp-delta--down-down span:after {
+  content: "▼▼";
+  top: 24px;
+}
 #today .speed {
-  right: 16%;
+  right: 20%;
   position: absolute;
   bottom: 31.5%;
   font-size: 0.5em;

@@ -9,7 +9,8 @@ plugins = {}
 config.plugins.forEach (name) ->
   Plugin = require("../lib/#{name}")
   instance = new Plugin(config[name])
-  plugins[name] = (cb) -> instance.data(cb)
+  plugins[name] = (cb) ->
+    instance.data(cb)
 
 router = express.Router()
 

@@ -58,13 +58,22 @@ a
       &:after
         content ""
         position absolute
-        right 13px
+        right 5px
         font-size 0.15em
+        width 32px
+        text-align center
+        letter-spacing 0
   &.current-delta--up span:after
     content "▲"
     top 0px
+  &.current-delta--up-up span:after
+    content "▲▲"
+    top 0px
   &.current-delta--down span:after
     content "▼"
+    top 46px
+  &.current-delta--down-down span:after
+    content "▼▼"
     top 46px
 
 #special
@@ -106,24 +115,22 @@ a
 
 #today
   position absolute
-  left 66%
+  left 60%
   top 0
-  width 33%
+  right 0%
   height 50%
-  padding 50px 30px
   font-size 40px
 
   #rain
     position relative
-    margin-top 20px
-    margin-left -50px
-    margin-right -60px
+    margin-top 55px
     .rain-label
     .wind-label
     .ct-chart
       display inline-block
       vertical-align top
     .rain-label
+      margin-right 5px
       width 40px
       p
         margin 5px 0 5px
@@ -166,12 +173,12 @@ a
           stroke-dasharray 8, 4
 
   #house
-    left 11%
+    left 20%
     position absolute
-    width 75%
+    width 61%
     bottom 30%
   #bypass
-    right 17.5%
+    right 20%
     position absolute
     width 11%
     bottom 37%
@@ -190,16 +197,25 @@ a
       &:after
         content ""
         position absolute
-        right 6px
+        right 0px
         font-size 0.18em
+        width 20px
+        text-align center
+        letter-spacing 0
     &.temp-delta--up span:after
       content "▲"
+      top -3px
+    &.temp-delta--up-up span:after
+      content "▲▲"
       top -3px
     &.temp-delta--down span:after
       content "▼"
       top 24px
+    &.temp-delta--down-down span:after
+      content "▼▼"
+      top 24px
   .speed
-    right 16%
+    right 20%
     position absolute
     bottom 31.5%
     font-size 0.5em

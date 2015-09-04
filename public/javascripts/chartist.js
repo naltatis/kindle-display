@@ -1,3 +1,4 @@
+
 if (!Function.prototype.bind) {
   Function.prototype.bind = function(oThis) {
     if (typeof this !== 'function') {
@@ -16,16 +17,12 @@ if (!Function.prototype.bind) {
                  aArgs.concat(Array.prototype.slice.call(arguments)));
         };
 
-    if (this.prototype) {
-      // native functions don't have a prototype
-      fNOP.prototype = this.prototype;
-    }
+    fNOP.prototype = this.prototype;
     fBound.prototype = new fNOP();
 
     return fBound;
   };
 }
-
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
@@ -4104,3 +4101,4 @@ var Chartist = {
 return Chartist;
 
 }));
+

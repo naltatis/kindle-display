@@ -9,8 +9,7 @@ block content
         #awigo
           for item in awigo[weather.forecast[0].date]
             strong= item.name
-
-    #current(class="#{tempdelta.aussen >= 1 ? 'current-delta--up' : ''} #{tempdelta.aussen <= -1 ? 'current-delta--down' : ''}")
+    #current(class="#{tempdelta.aussen >= 1 ? 'current-delta--up' : ''}#{tempdelta.aussen >= 2 ? '-up' : ''} #{tempdelta.aussen <= -1 ? 'current-delta--down' : ''}#{tempdelta.aussen <= -2 ? '-down' : ''}")
       img(src="/images/weather/#{weather.today.icon}.svg")
       p.temp: span #{formatTemp(uvr.aussen)}
 
@@ -23,7 +22,7 @@ block content
       img(src=today_icon)
 
     #today
-      if weather.probabilityMax >= 20 || weather.windSpeedMax >= 10
+      if weather.probabilityMax >= 20 || weather.windSpeedMax >= 20
         #rain
           .rain-label
             if weather.probabilityMax >= 20
@@ -49,7 +48,7 @@ block content
 
             var options = {
               width: 140,
-              height: 80,
+              height: 90,
               lineSmooth: true,
               low: 0,
               high: 100,
@@ -69,7 +68,7 @@ block content
             Chartist.Line('.ct-chart', data, options);
 
       img#house(src="/images/house.svg")
-      p.temp(class="#{tempdelta.innen >= 0.1 ? 'temp-delta--up' : ''} #{tempdelta.innen <= -0.1 ? 'temp-delta--down' : ''}")
+      p.temp(class="#{tempdelta.innen >= 0.1 ? 'temp-delta--up' : ''}#{tempdelta.innen >= 0.2 ? '-up' : ''} #{tempdelta.innen <= -0.1 ? 'temp-delta--down' : ''}#{tempdelta.innen <= -0.2 ? '-down' : ''}")
         span #{formatTemp(pluggit.innen)}
       p.speed #{pluggit.speed}
       img#bypass(src="/images/bypass_#{pluggit.bypass=='open' ? 'open' : 'closed'}.svg")
