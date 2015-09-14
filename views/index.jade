@@ -5,10 +5,16 @@ block content
 
   #canvas
     #status
-      if new Date().getHours() < 12 && awigo[weather.forecast[0].date]
-        #awigo
+      #statusItems
+        if vertretungsplan
+          strong: a(href=vertretungsplan target="_blank")
+            img(src="/images/school.svg")
+            |  Vertretung
+        if new Date().getHours() < 12 && awigo[weather.forecast[0].date]
           for item in awigo[weather.forecast[0].date]
-            strong= item.name
+            strong
+              img(src="/images/trash.svg")
+              |  #{item.name}
     #current(class="#{tempdelta.aussen >= 1 ? 'current-delta--up' : ''}#{tempdelta.aussen >= 2 ? '-up' : ''} #{tempdelta.aussen <= -1 ? 'current-delta--down' : ''}#{tempdelta.aussen <= -2 ? '-down' : ''}")
       img(src="/images/weather/#{weather.today.icon}.svg")
       p.temp: span #{formatTemp(uvr.aussen)}

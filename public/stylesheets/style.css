@@ -22,11 +22,12 @@ a {
   left: 5%;
   right: 5%;
   top: 2%;
+  z-index: 1;
 }
-#status #awigo {
+#status #statusItems {
   text-align: right;
 }
-#status #awigo strong {
+#status #statusItems strong {
   font-size: 1.3rem;
   color: #fff;
   background-color: #444;
@@ -38,6 +39,10 @@ a {
   line-height: 1em;
   font-weight: normal;
   vertical-align: top;
+}
+#status #statusItems a {
+  color: #fff;
+  text-decoration: none;
 }
 #current {
   position: absolute;
