@@ -17,7 +17,6 @@ class Vertretungsplan
     @url.replace "{day}", day
 
   _check: (url, cb) ->
-    console.log url
     request
       .get(url)
       .end (err, res) ->
