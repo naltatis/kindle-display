@@ -43,8 +43,8 @@ class Weather
             day: @_weekday(entry.date.epoch)
             date: @_simpleDate(entry.date.epoch)
             icon: entry.icon
-            max: parseInt(entry.high.celsius, 10)
-            min: parseInt(entry.low.celsius, 10)
+            max: parseInt(entry.high.celsius, 10) or 0
+            min: parseInt(entry.low.celsius, 10) or 0
           }
 
       for entry, i in data.hourly_forecast
