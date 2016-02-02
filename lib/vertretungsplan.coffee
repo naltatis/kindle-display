@@ -10,7 +10,7 @@ class Vertretungsplan
     date = new Date()
     hour = date.getHours()
     day = date.getDay()
-    return @days[day] if hour > 18
+    return @days[day] if hour > 16
     return @days[day-1] if hour < 9
 
   _url: (day) ->
