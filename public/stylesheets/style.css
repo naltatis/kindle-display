@@ -3,17 +3,19 @@
   margin: 0;
   padding: 0;
 }
+html {
+  font-size: 28px;
+}
 body {
-  font-size: 14px;
-  font-family: Arial;
+  font-family: 'Arimo', cursive;
 }
 a {
   color: #00b7ff;
 }
 #canvas {
   position: relative;
-  height: 800px;
-  width: 600px;
+  height: 1448px;
+  width: 1072px;
   background-color: #fff;
   overflow: hidden;
 }
@@ -40,6 +42,10 @@ a {
   font-weight: normal;
   vertical-align: top;
 }
+#status #statusItems img {
+  width: 1rem;
+  height: auto;
+}
 #status #statusItems a {
   color: #fff;
   text-decoration: none;
@@ -59,7 +65,7 @@ a {
 }
 #current p {
   margin-top: -40%;
-  font-size: 100px;
+  font-size: 6.2rem;
   padding-left: 0.25em;
   text-align: center;
 }
@@ -69,9 +75,9 @@ a {
 #current p span:after {
   content: "";
   position: absolute;
-  right: 5px;
+  right: 0;
   font-size: 0.15em;
-  width: 32px;
+  width: 2.7em;
   text-align: center;
   letter-spacing: 0;
 }
@@ -85,17 +91,17 @@ a {
 }
 #current.current-delta--down span:after {
   content: "▼";
-  top: 46px;
+  top: 3.1em;
 }
 #current.current-delta--down-down span:after {
   content: "▼▼";
-  top: 46px;
+  top: 3.1em;
 }
 #special {
   position: absolute;
   left: 33%;
   bottom: 60%;
-  width: 33%;
+  width: 36%;
   padding: 50px 30px;
 }
 #special img {
@@ -104,31 +110,31 @@ a {
   margin-left: 10%;
   margin-top: 20%;
   display: block;
-  max-height: 140px;
+  max-height: 240px;
 }
 #special p {
   text-align: center;
 }
 #special p a {
-  padding-top: 2px;
+  padding-top: 0.2em;
   color: #000;
   display: inline-block;
   text-decoration: none;
 }
 #special p[data-type=namenstag] small {
-  font-size: 18px;
+  font-size: 1.2rem;
   color: #000;
   display: block;
-  padding-bottom: 2px;
+  padding-bottom: 0.2em;
 }
 #special p[data-type=namenstag] a {
-  font-size: 22px;
+  font-size: 1.5rem;
   font-weight: bold;
   border-top: 1px solid #999;
 }
 #special p[data-type=sondertag] a,
 #special p[data-type=fest] a {
-  font-size: 19px;
+  font-size: 1.3rem;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
 }
@@ -142,7 +148,7 @@ a {
 }
 #today #rain {
   position: relative;
-  margin-top: 55px;
+  margin-top: 4rem;
 }
 #today #rain .rain-label,
 #today #rain .wind-label,
@@ -151,16 +157,17 @@ a {
   vertical-align: top;
 }
 #today #rain .rain-label {
-  margin-right: 5px;
-  width: 40px;
+  margin-left: 1.5rem;
+  margin-right: 0rem;
+  width: 2.2rem;
 }
 #today #rain .rain-label p {
-  margin: 5px 0 5px;
-  font-size: 20px;
+  margin: 0.5rem 0 0.5rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 #today #rain .rain-label p small {
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 #today #rain .rain-label img {
   display: block;
@@ -168,15 +175,15 @@ a {
   margin-left: 15%;
 }
 #today #rain .wind-label {
-  width: 45px;
+  width: 2.2rem;
   text-align: center;
 }
 #today #rain .wind-label p {
-  margin: 5px 0 5px;
-  font-size: 20px;
+  margin: 0.5rem 0 0.5rem;
+  font-size: 1.2rem;
 }
 #today #rain .wind-label p small {
-  font-size: 10px;
+  font-size: 0.8rem;
 }
 #today #rain .wind-label img {
   display: block;
@@ -184,12 +191,12 @@ a {
   margin-left: 10%;
 }
 #today #rain .ct-chart {
-  margin-top: -5px;
-  width: 140px;
+  margin-top: -0.5rem;
+  width: 230px;
 }
 #today #rain .ct-chart .ct-label {
   color: #000;
-  margin-left: -5px;
+  margin-left: -0.5rem;
   font-weight: bold;
 }
 #today #rain .ct-chart .ct-grid {
@@ -225,7 +232,7 @@ a {
   position: absolute;
   width: 50%;
   bottom: 35%;
-  font-size: 1.3em;
+  font-size: 3.3rem;
   text-align: center;
 }
 #today .temp span {
@@ -234,45 +241,45 @@ a {
 #today .temp span:after {
   content: "";
   position: absolute;
-  right: 0px;
+  right: 0;
   font-size: 0.18em;
-  width: 20px;
+  width: 2.3em;
   text-align: center;
   letter-spacing: 0;
 }
 #today .temp.temp-delta--up span:after {
   content: "▲";
-  top: -3px;
+  top: -0.3em;
 }
 #today .temp.temp-delta--up-up span:after {
   content: "▲▲";
-  top: -3px;
+  top: -0.3em;
 }
 #today .temp.temp-delta--down span:after {
   content: "▼";
-  top: 24px;
+  top: 2.7em;
 }
 #today .temp.temp-delta--down-down span:after {
   content: "▼▼";
-  top: 24px;
+  top: 2.7em;
 }
 #today .speed {
-  right: 20%;
+  right: 21%;
   position: absolute;
-  bottom: 31.5%;
-  font-size: 0.5em;
+  bottom: 33%;
+  font-size: 0.9rem;
 }
 #forecast {
   position: absolute;
   left: 0;
   top: 40%;
   padding: 15px;
-  height: 60%;
+  height: 59%;
   width: 100%;
 }
 #forecast h2 {
   font-weight: normal;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: #333;
 }
 #forecast h2 strong {
@@ -300,18 +307,18 @@ a {
   width: 20%;
   vertical-align: top;
   text-align: center;
-  height: 500px;
+  height: 100%;
 }
 #forecast img {
   display: block;
   margin: 0 auto;
-  max-width: 100%;
-  max-height: 100%;
+  width: 130px;
+  height: 130px;
 }
 #forecast .range {
   position: relative;
-  height: 280px;
-  margin: 1rem 0;
+  height: 64%;
+  margin: 2rem 0;
   width: 100%;
 }
 #forecast .inner {
@@ -320,7 +327,7 @@ a {
   left: 32%;
   right: 32%;
   background-color: #444;
-  border-radius: 20px;
+  border-radius: 2rem;
   border: 3px solid #fff;
 }
 #forecast .min,
@@ -328,12 +335,13 @@ a {
   font-size: 1.6rem;
   position: absolute;
   text-align: right;
-  width: 100%;
-  left: 0em;
+  right: -0.75em;
+  left: -0.5em;
   background-color: #fff;
+  text-align: center;
 }
 #forecast .max {
-  top: -1.3em;
+  top: -1.4em;
 }
 #forecast .min {
   position: absolute;
