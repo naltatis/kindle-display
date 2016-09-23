@@ -5,7 +5,7 @@ page.viewportSize = {
 };
 page.open('http://localhost:3000/', function() {
   window.setTimeout(function () {
-    page.render('public/weather.png');
+    page.render('public/weather_pw.png');
     phantom.exit();
   }, 1000);
 });
